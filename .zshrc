@@ -32,6 +32,7 @@ autoload -U compinit && compinit
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Some aliases
+alias ls='ls --color'
 alias t30='tail -n 30'
 alias cds='cd /mnt/documents/Scripts'
 alias cdd='cd /mnt/documents/Scripts/docker'
@@ -43,3 +44,19 @@ alias bat='batcat'
 # Exporting variables
 export EDITOR=/usr/bin/nvim
 export PATH=$PATH:/usr/local/go/bin
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Shell integrations
+eval "$(fzf --zsh)"
